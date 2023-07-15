@@ -1,7 +1,7 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { sliderItems } from "../data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -28,6 +28,16 @@ const Arrow = styled.div`
   cursor: pointer;
   opacity: 0.5;
   z-index: 2;
+  ${(props) =>
+    props.leftDisabled &&
+    css`
+      display: none;
+    `};
+  ${(props) =>
+    props.rightDisabled &&
+    css`
+      display: none;
+    `};
 `;
 
 const Wrapper = styled.div`
@@ -80,12 +90,30 @@ const Button = styled.button`
 const Slider = () => {
   const PF = process.env.PUBLIC_URL;
   const [slideIndex, setSlideIndex] = useState(0);
+  const [isLeftDisabled, setIsLeftDisabled] = useState(true);
+  const [isRightDisabled, setIsRightDisabled] = useState(false);
+
+  useEffect(() => {
+    slideIndex === 3 && setIsRightDisabled(true);
+    slideIndex === 0 && setIsLeftDisabled(true);
+  }, [slideIndex]);
 
   const handleClick = (direction) => {
     if (direction === "left") {
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 3);
+      if (slideIndex > 0) {
+        setIsLeftDisabled(false);
+        setSlideIndex((currentState) => currentState - 1);
+        setIsRightDisabled(false);
+      } else {
+        setIsLeftDisabled(true);
+      }
     } else {
-      setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0);
+      if (slideIndex < 3) {
+        setIsLeftDisabled(false);
+        setSlideIndex((currentState) => currentState + 1);
+      } else {
+        setIsRightDisabled(true);
+      }
     }
   };
 
@@ -96,6 +124,7 @@ const Slider = () => {
         onClick={() => {
           handleClick("left");
         }}
+        leftDisabled={isLeftDisabled}
       >
         <ArrowLeftOutlined />
       </Arrow>
@@ -118,6 +147,7 @@ const Slider = () => {
         onClick={() => {
           handleClick("right");
         }}
+        rightDisabled={isRightDisabled}
       >
         <ArrowRightOutlined />
       </Arrow>

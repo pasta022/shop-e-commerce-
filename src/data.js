@@ -32,27 +32,32 @@ export const sliderItems = [
 export const categories = [
     {
         id: 1,
-        img: "",
+        img: "/media/categories/1.jpg",
         title: "SUMMER SHIRTS"
     },
     {
         id: 2,
-        img: "",
+        img: "/media/categories/2.jpg",
         title: "BIKINI BOTTOMS"
     },
     {
         id: 3,
-        img: "",
+        img: "/media/categories/3.jpg",
         title: "WINTER WEARS"
     },
     {
         id: 4,
-        img: "",
+        img: "/media/categories/4.jpg",
         title: "JAMMIN' JACKETS"
     },
     {
         id: 5,
-        img: "",
+        img: "/media/categories/5.jpg",
         title: "SHOES IN STYLE"
+    },
+    {
+        id: 6,
+        img: "/media/categories/6.jpg",
+        title: "DASHING DRESSES"
     },
 ]
