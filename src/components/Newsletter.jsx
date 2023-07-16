@@ -30,10 +30,16 @@ const InputContainer = styled.div`
   border: 1px solid lightgray;
 `;
 
-const Input = styled.input`
+const Input = styled.input.attrs((props) => ({
+  type: props.type || "text",
+}))`
   border: none;
   flex: 8;
   padding-left: 20px;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Button = styled.button`
