@@ -1,17 +1,4 @@
-import { useEffect, useState } from "react";
-import { css, styled } from "styled-components";
-
-const Container = styled.div`
-  margin: 3px;
-  height: 50vh;
-  position: relative;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
+import { styled } from "styled-components";
 
 const Info = styled.div`
   position: absolute;
@@ -25,17 +12,26 @@ const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  ${(props) =>
-    props.hover &&
-    css`
-      background-color: #321e3288;
-      visibility: visible;
-      opacity: 1;
-      transition: background-color 0.3s ease-out, visibility 0.3s ease-out,
-        opacity 0.3s ease-out;
-    `}
-  &:hover {
+`;
+
+const Container = styled.div`
+  margin: 3px;
+  height: 50vh;
+  position: relative;
+
+  &:hover ${Info} {
+    background-color: #27363687;
+    visibility: visible;
+    opacity: 1;
+    transition: background-color 0.3s ease-out, visibility 0.3s ease-out,
+      opacity 0.3s ease-out;
   }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const Title = styled.h1`
@@ -54,19 +50,11 @@ const Button = styled.button`
 
 const CategoryItem = ({ c }) => {
   const PF = process.env.PUBLIC_URL;
-  const [isHover, setIsHover] = useState(false);
 
   return (
-    <Container
-      onMouseEnter={() => {
-        setIsHover(true);
-      }}
-      onMouseLeave={() => {
-        setIsHover(false);
-      }}
-    >
+    <Container>
       <Image src={`${PF + c.img}`} />
-      <Info hover={isHover}>
+      <Info>
         <Title>{c.title}</Title>
         <Button>SHOP NOW</Button>
       </Info>

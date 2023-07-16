@@ -61,3 +61,38 @@ export const categories = [
         title: "DASHING DRESSES"
     },
 ]
+
+export const popularProducts = [
+    {
+        id: 1,
+        img: "/media/products/1.png"
+    },
+    {
+        id: 2,
+        img: "/media/products/2.png"
+    },
+    {
+        id: 3,
+        img: "/media/products/3.png"
+    },
+    {
+        id: 4,
+        img: "/media/products/4.png"
+    },
+    {
+        id: 5,
+        img: "/media/products/5.png"
+    },
+    {
+        id: 6,
+        img: "/media/products/6.png"
+    },
+    {
+        id: 7,
+        img: "/media/products/7.png"
+    },
+    {
+        id: 8,
+        img: "/media/products/8.png"
+    },
+]
