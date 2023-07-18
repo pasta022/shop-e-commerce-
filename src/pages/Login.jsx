@@ -64,6 +64,10 @@ const Button = styled.button`
   background-color: black;
   color: white;
   cursor: pointer;
+
+  &:hover {
+    background-color: #1d1d1d;
+  }
 `;
 
 const Line = styled.hr`
