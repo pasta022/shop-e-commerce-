@@ -9,11 +9,16 @@ import {
 } from "@mui/icons-material";
 import { darken } from "polished";
 import { styled } from "styled-components";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   display: flex;
   background-color: black;
   color: white;
+
+  ${mobile({
+    flexDirection: "column",
+  })}
 `;
 
 const Left = styled.div`
@@ -54,6 +59,8 @@ const SocialIcon = styled.div`
 const Center = styled.div`
   flex: 1;
   padding: 20px;
+
+  ${mobile({ display: "none" })}
 `;
 
 const Title = styled.h3`
@@ -77,6 +84,7 @@ const ListItem = styled.li`
 const Right = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({ backgroundColor: "#1b1b1b" })}
 `;
 
 const ContactItem = styled.div`

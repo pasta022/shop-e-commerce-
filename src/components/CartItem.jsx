@@ -1,11 +1,14 @@
 import { Add, Remove } from "@mui/icons-material";
 import { styled } from "styled-components";
+import { mobile } from "../responsive";
 
 const Container = styled.div``;
 
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const ProductDetails = styled.div`
@@ -69,6 +72,8 @@ const ProductAmount = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  ${mobile({ margin: "5px 15px" })}
 `;
 
 const ProductPriceContainer = styled.div`
@@ -80,6 +85,8 @@ const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
   margin-left: 5px;
+
+  ${mobile({ marginBottom: "20px" })}
 `;
 
 const Hr = styled.hr`

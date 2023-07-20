@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { categories } from "../data";
 import CategoryItem from "./CategoryItem";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   display: grid;
@@ -9,6 +10,12 @@ const Container = styled.div`
   row-gap: 10px;
   padding: 20px;
   justify-content: space-between;
+
+  ${mobile({
+    display: "flex",
+    flexDirection: "column",
+    padding: "0px",
+  })}
 `;
 
 const Categories = () => {
