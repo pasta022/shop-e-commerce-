@@ -94,7 +94,7 @@ const MenuItem = styled.div`
 
   ${mobile({
     fontSize: "12px",
-    marginLeft: "15px",
+    marginLeft: "10px",
   })}
 `;
 

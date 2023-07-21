@@ -22,7 +22,7 @@ const Image = styled.img`
   height: 80vh;
   object-fit: cover;
 
-  ${mobile({ height: "40vh" })}
+  ${mobile({ height: "50vh" })}
 `;
 
 const InfoContainer = styled.div`
@@ -123,7 +123,6 @@ const Button = styled.button`
   justify-content: center;
   border: none;
   color: whitesmoke;
-  border-radius: 10px;
   background-color: #000000;
   cursor: pointer;
   font-size: 20px;
@@ -132,7 +131,7 @@ const Button = styled.button`
     background-color: #161616;
   }
 
-  ${mobile({ margin: "0px" })}
+  ${mobile({ margin: "10px 0" })}
 `;
 
 const ButtonText = styled.span`

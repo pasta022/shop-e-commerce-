@@ -5,7 +5,9 @@ import Footer from "../components/Footer";
 import CartItem from "../components/CartItem";
 import { mobile } from "../responsive";
 
-const Container = styled.div``;
+const Container = styled.div`
+  ${mobile({ maxWidth: "100vw" })}
+`;
 
 const Wrapper = styled.div`
   padding: 20px;

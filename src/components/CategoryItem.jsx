@@ -13,6 +13,8 @@ const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  ${mobile({ height: "20vh" })}
 `;
 
 const Container = styled.div`
@@ -27,6 +29,8 @@ const Container = styled.div`
     transition: background-color 0.3s ease-out, visibility 0.3s ease-out,
       opacity 0.3s ease-out;
   }
+
+  ${mobile({ height: "20vh" })}
 `;
 
 const Image = styled.img`

@@ -54,6 +54,8 @@ const PriceDetails = styled.div`
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+
+  ${mobile({ alignItems: "center" })}
 `;
 
 const ProductAmountContainer = styled.div`
@@ -79,6 +81,7 @@ const ProductAmount = styled.div`
 const ProductPriceContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 const ProductPrice = styled.div`

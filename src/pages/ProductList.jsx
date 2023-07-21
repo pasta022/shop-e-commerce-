@@ -23,7 +23,7 @@ const Filter = styled.div`
   ${mobile({
     margin: "0px 20px",
     display: "flex",
-    flexdirection: "column",
+    flexDirection: "column",
   })}
 `;
 
