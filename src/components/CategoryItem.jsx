@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Info = styled.div`
   position: absolute;
@@ -14,7 +15,7 @@ const Info = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${mobile({ height: "20vh" })}
+  ${mobile({ height: "20vh", visibility: "visible", opacity: "1", backgroundColor: "#27363687;" })}
 `;
 
 const Container = styled.div`
@@ -39,8 +40,8 @@ const Image = styled.img`
   object-fit: cover;
 
   ${mobile({
-    height: "20vh",
-  })}
+  height: "20vh",
+})}
 `;
 
 const Title = styled.h1`
@@ -48,8 +49,8 @@ const Title = styled.h1`
   margin-bottom: 20px;
 
   ${mobile({
-    fontSize: "20px",
-  })}
+  fontSize: "20px",
+})}
 `;
 
 const Button = styled.button`
@@ -63,13 +64,14 @@ const Button = styled.button`
 
 const CategoryItem = ({ c }) => {
   const PF = process.env.PUBLIC_URL;
+  const navigate = useNavigate();
 
   return (
     <Container>
       <Image src={`${PF + c.img}`} />
       <Info>
         <Title>{c.title}</Title>
-        <Button>SHOP NOW</Button>
+        <Button onClick={() => navigate("/allproducts")}>SHOP NOW</Button>
       </Info>
     </Container>
   );

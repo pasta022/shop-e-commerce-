@@ -4,6 +4,8 @@ import {
   ShoppingCartOutlined,
 } from "@mui/icons-material";
 import { styled } from "styled-components";
+import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Info = styled.div`
   opacity: 0;
@@ -18,6 +20,14 @@ const Info = styled.div`
   align-items: center;
   justify-content: center;
   transition: all 0.4s ease;
+
+  ${mobile({
+  opacity: "1",
+  height: "70px",
+  top: "100%",
+  transform: "translateY(-100%)",
+  backgroundColor: "transparent"
+})}
 `;
 
 const Container = styled.div`
@@ -68,8 +78,9 @@ const Icon = styled.div`
 `;
 
 const Product = ({ p }) => {
+  const navigate = useNavigate()
   return (
-    <Container>
+    <Container onClick={() => navigate("/product")}>
       <Circle />
       <Image src={p.img} />
       <Info>

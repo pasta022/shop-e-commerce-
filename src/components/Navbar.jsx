@@ -3,12 +3,13 @@ import { styled } from "styled-components";
 import { Search, ShoppingCartOutlined } from "@mui/icons-material";
 import { Badge } from "@mui/material";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
   ${mobile({
-    height: "60px",
-  })}
+  height: "60px",
+})}
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -16,8 +17,8 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   ${mobile({
-    padding: "10px 0",
-  })}
+  padding: "10px 0",
+})}
 `;
 
 const Left = styled.div`
@@ -31,8 +32,8 @@ const Language = styled.span`
   cursor: pointer;
 
   ${mobile({
-    display: "none",
-  })}
+  display: "none",
+})}
 `;
 
 const SearchContainer = styled.div`
@@ -43,8 +44,8 @@ const SearchContainer = styled.div`
   padding: 5px;
 
   ${mobile({
-    marginLeft: "10px",
-  })}
+  marginLeft: "10px",
+})}
 `;
 
 const Input = styled.input`
@@ -54,8 +55,8 @@ const Input = styled.input`
   }
 
   ${mobile({
-    width: "50px",
-  })}
+  width: "50px",
+})}
 `;
 
 const Center = styled.div`
@@ -66,9 +67,9 @@ const Center = styled.div`
 const Logo = styled.h1`
   font-weight: bold;
   ${mobile({
-    fontSize: "18px",
-    marginLeft: "10px",
-  })}
+  fontSize: "18px",
+  marginLeft: "10px",
+})}
 `;
 
 const Right = styled.div`
@@ -78,9 +79,9 @@ const Right = styled.div`
   justify-content: flex-end;
 
   ${mobile({
-    justifyContent: "center",
-    flex: 2,
-  })}
+  justifyContent: "center",
+  flex: 2,
+})}
 `;
 
 const MenuItem = styled.div`
@@ -93,12 +94,13 @@ const MenuItem = styled.div`
   }
 
   ${mobile({
-    fontSize: "12px",
-    marginLeft: "10px",
-  })}
+  fontSize: "12px",
+  marginLeft: "10px",
+})}
 `;
 
 const Navbar = () => {
+  const navigate = useNavigate()
   return (
     <Container>
       <Wrapper>
@@ -113,9 +115,9 @@ const Navbar = () => {
           <Logo>THE SHOP!</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN UP</MenuItem>
-          <MenuItem>
+          <MenuItem onClick={() => navigate("/register")}>REGISTER</MenuItem>
+          <MenuItem onClick={() => navigate("/login")}>SIGN IN</MenuItem>
+          <MenuItem onClick={() => navigate("/cart")}>
             <Badge badgeContent={4} color="primary">
               <ShoppingCartOutlined />
             </Badge>

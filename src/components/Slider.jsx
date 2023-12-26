@@ -3,6 +3,7 @@ import { css, styled } from "styled-components";
 import { sliderItems } from "../data";
 import { useEffect, useState } from "react";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -12,8 +13,8 @@ const Container = styled.div`
   overflow: hidden;
 
   ${mobile({
-    display: "none",
-  })}
+  display: "none",
+})}
 `;
 
 const Arrow = styled.div`
@@ -34,12 +35,12 @@ const Arrow = styled.div`
   opacity: 0.5;
   z-index: 2;
   ${(props) =>
-    props.leftDisabled &&
+    props.$leftdisabled &&
     css`
       display: none;
     `};
   ${(props) =>
-    props.rightDisabled &&
+    props.$rightdisabled &&
     css`
       display: none;
     `};
@@ -49,7 +50,7 @@ const Wrapper = styled.div`
   height: 100%;
   display: flex;
   transition: all 1.5s ease;
-  transform: translateX(${(props) => props.slideIndex * -100}vw);
+  transform: translateX(${(props) => props.$slideIndex * -100}vw);
 `;
 
 const Slide = styled.div`
@@ -57,7 +58,7 @@ const Slide = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #${(props) => props.bg};
+  background-color: #${(props) => props.$bg};
 `;
 
 const ImgContainer = styled.div`
@@ -97,6 +98,7 @@ const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [isLeftDisabled, setIsLeftDisabled] = useState(true);
   const [isRightDisabled, setIsRightDisabled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     slideIndex === 3 && setIsRightDisabled(true);
@@ -129,20 +131,20 @@ const Slider = () => {
         onClick={() => {
           handleClick("left");
         }}
-        leftDisabled={isLeftDisabled}
+        $leftdisabled={isLeftDisabled}
       >
         <ArrowLeftOutlined />
       </Arrow>
-      <Wrapper slideIndex={slideIndex}>
+      <Wrapper $slideIndex={slideIndex}>
         {sliderItems.map((slider) => (
-          <Slide bg={slider.bg} key={slider.id}>
+          <Slide $bg={slider.bg} key={slider.id}>
             <ImgContainer>
               <Img src={`${PF + slider.img}`} />
             </ImgContainer>
             <InfoContainer>
               <Title>{slider.title}</Title>
               <Description>{slider.desc}</Description>
-              <Button>GET NOW</Button>
+              <Button onClick={() => navigate("/allproducts")}>GET NOW</Button>
             </InfoContainer>
           </Slide>
         ))}
@@ -152,7 +154,7 @@ const Slider = () => {
         onClick={() => {
           handleClick("right");
         }}
-        rightDisabled={isRightDisabled}
+        $rightdisabled={isRightDisabled}
       >
         <ArrowRightOutlined />
       </Arrow>
